@@ -35,9 +35,9 @@ def calculate_item_id(item):
 
 
 project = Project(
-  title = "WARC indexing",
+  title = "Indexing ArchiveTeam archives",
   project_html = """
-    <h2>WARC indexing <span class="links"><a href="http://archive.org/details/archiveteam">Website</a> &middot; <a href="http://tracker.archiveteam.org/warcindex/">Leaderboard</a></span></h2>
+    <h2>Indexing ArchiveTeam archives <span class="links"><a href="http://archive.org/details/archiveteam">Website</a> &middot; <a href="http://tracker.archiveteam.org/warcindex/">Leaderboard</a></span></h2>
     <p>Help to index the files collected by ArchiveTeam.</p>
   """
 )
