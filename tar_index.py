@@ -39,6 +39,7 @@ class TarIndex(object):
     self._headers = []
     self._pos = 0
     self._full_size = None
+    self._session = requests.session()
 
   def bytes_read(self):
     return self._pos or self._full_size
@@ -65,7 +66,7 @@ class TarIndex(object):
     while response is None and errors < 5:
       try:
         range_header = "bytes=%d-%d" % (self._pos, self._pos + (TarIndex.BATCH_SIZE * TarIndex.BLOCK_SIZE - 1))
-        response = requests.get(self.url, headers={"Range": range_header})
+        response = self._session.get(self.url, headers={"Range": range_header})
         match = re.search("/([0-9]+)$", response.headers["Content-Range"])
         self._full_size = int(match.group(1))
         self.url = response.url
