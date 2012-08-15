@@ -13,7 +13,7 @@ from seesaw.pipeline import *
 from seesaw.externalprocess import *
 from seesaw.tracker import *
 
-VERSION = "20120809.01"
+VERSION = "20120815.01"
 
 class PrepareItem(SimpleTask):
   def __init__(self):
