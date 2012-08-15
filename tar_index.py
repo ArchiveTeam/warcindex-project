@@ -92,13 +92,13 @@ class TarIndex(object):
         entry_size = TarIndex.BLOCK_SIZE + header.size + (TarIndex.BLOCK_SIZE - (header.size % TarIndex.BLOCK_SIZE)) % TarIndex.BLOCK_SIZE
         offset += entry_size
         self._pos += entry_size
-        self._headers.append(header)
         new_headers.append(header)
 
     if self._pos is None or self._full_size < self._pos + TarIndex.BLOCK_SIZE:
       self._pos = None
 
     if new_headers:
+      self._headers = new_headers
       return new_headers
     else:
       return None
